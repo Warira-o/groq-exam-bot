@@ -1,0 +1,10 @@
+# Environments
+venv/
+__pycache__/
+
+# API Keys
+.env
+
+# Temporary files created by the app
+temp.pdf
+*.sqlite3
