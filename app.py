@@ -1,7 +1,7 @@
 import streamlit as st
 import os
-from dotnev import load_dotnev
-load_dotnev()
+from dotenv import load_dotenv
+load_dotenv()
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
