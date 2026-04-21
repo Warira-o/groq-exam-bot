@@ -333,11 +333,13 @@ with st.sidebar:
                               help="Get yours at console.groq.com")
 
 # ─── DEPENDENCY CHECK ────────────────────────────────────────────────────────
+# --- DEPENDENCY CHECK (Lines 214-219) ---
 if not DEPS_OK:
     st.error(f"Missing dependencies: `{IMPORT_ERROR}`")
-    st.code("pip install langchain langchain-groq langchain-community langchain-core langchain-text-splitters faiss-cpu pypdf python-dotenv fastembed==0.4.2")
+    # This string now perfectly matches the recommended requirements.txt
+    st.code("pip install langchain==0.3.1 langchain-groq langchain-community langchain-core langchain-text-splitters faiss-cpu pypdf python-dotenv fastembed==0.4.2 cffi==1.17.1")
+    st.info("💡 Note: If you are seeing build errors, ensure you have updated your requirements.txt and redeployed.")
     st.stop()
-
 # ─── PROCESS PDF ─────────────────────────────────────────────────────────────
 if uploaded_file and process_btn:
     if not groq_key:
