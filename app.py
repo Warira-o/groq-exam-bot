@@ -253,8 +253,10 @@ try:
     try:
         from langchain_huggingface import HuggingFaceEmbeddings
     except ImportError:
-        from langchain_community.embeddings import HuggingFaceEmbeddings
+       # Instead of HuggingFaceEmbeddings, use:
+from langchain_community.embeddings import FastEmbedEmbeddings
 
+embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
     DEPS_OK = True
 except ImportError as e:
     DEPS_OK = False
