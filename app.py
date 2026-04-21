@@ -341,6 +341,7 @@ if not DEPS_OK:
     st.info("💡 Note: If you are seeing build errors, ensure you have updated your requirements.txt and redeployed.")
     st.stop()
 # ─── PROCESS PDF ─────────────────────────────────────────────────────────────
+# ─── PROCESS PDF ─────────────────────────────────────────────────────────────
 if uploaded_file and process_btn:
     if not groq_key:
         st.sidebar.error("Please enter your Groq API key.")
@@ -358,8 +359,14 @@ if uploaded_file and process_btn:
                 splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
                 chunks = splitter.split_documents(docs)
 
+                # 👇 ---> MAKE YOUR CHANGE RIGHT HERE <--- 👇
                 embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+                
+                # 🐛 WORKAROUND: Fix LangChain/FastEmbed initialization bug
+                embeddings._model = embeddings.model_dump().get("_model") 
+
                 vectorstore = FAISS.from_documents(chunks, embeddings)
+                # 👆 -------------------------------------- 👆
 
                 st.session_state.vectorstore = vectorstore
                 st.session_state.doc_name = uploaded_file.name
