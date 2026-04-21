@@ -1,4 +1,4 @@
-langchain==0.3.25
+langchain==0.3.1
 langchain-groq
 langchain-community
 langchain-core
@@ -6,4 +6,7 @@ langchain-text-splitters
 faiss-cpu
 pypdf
 python-dotenv
-fastembed==0.7.4
+# Use 0.4.2 as it is more stable for Streamlit Cloud deployments
+fastembed==0.4.2 
+# Explicitly add cffi to force the use of a binary wheel
+cffi==1.17.1
