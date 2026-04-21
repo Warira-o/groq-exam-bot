@@ -248,15 +248,8 @@ try:
     from langchain.chains import create_retrieval_chain
     from langchain.chains.combine_documents import create_stuff_documents_chain
     from langchain_core.prompts import ChatPromptTemplate
+    from langchain_community.embeddings import FastEmbedEmbeddings
 
-    # Try new package first, fall back to community
-    try:
-        from langchain_huggingface import HuggingFaceEmbeddings
-    except ImportError:
-       # Instead of HuggingFaceEmbeddings, use:
-from langchain_community.embeddings import FastEmbedEmbeddings
-
-embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
     DEPS_OK = True
 except ImportError as e:
     DEPS_OK = False
@@ -363,7 +356,7 @@ if uploaded_file and process_btn:
                 splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
                 chunks = splitter.split_documents(docs)
 
-                embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+                embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
                 vectorstore = FAISS.from_documents(chunks, embeddings)
 
                 st.session_state.vectorstore = vectorstore
