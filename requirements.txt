@@ -1,10 +1,11 @@
 streamlit
-fastembed
 langchain
+langchain-groq
 langchain-community
 langchain-core
-langchain-groq
-sentence-transformers
+langchain-text-splitters
 faiss-cpu
 pypdf
 python-dotenv
+fastembed
+transformers==4.40.0
