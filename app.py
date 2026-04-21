@@ -299,7 +299,7 @@ with st.sidebar:
     st.markdown('<div class="sidebar-label">⚙️ Model</div>', unsafe_allow_html=True)
     model_choice = st.selectbox(
         "LLM Model",
-        ["llama-3.1-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768"],
+        ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "llama3-8b-8192"],
         label_visibility="collapsed",
     )
 
@@ -335,7 +335,7 @@ with st.sidebar:
 # ─── DEPENDENCY CHECK ────────────────────────────────────────────────────────
 if not DEPS_OK:
     st.error(f"Missing dependencies: `{IMPORT_ERROR}`")
-    st.code("pip install langchain-groq langchain-community langchain-huggingface faiss-cpu pypdf sentence-transformers python-dotenv")
+    st.code("pip install langchain langchain-groq langchain-community langchain-core langchain-text-splitters faiss-cpu pypdf python-dotenv fastembed==0.4.2")
     st.stop()
 
 # ─── PROCESS PDF ─────────────────────────────────────────────────────────────
