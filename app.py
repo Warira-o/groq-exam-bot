@@ -42,7 +42,7 @@ html, body, [class*="css"] {
 }
 
 /* Hide Streamlit defaults */
-#MainMenu, footer, header { visibility: hidden; }
+#MainMenu, footer { visibility: hidden; }
 .block-container { padding: 1.5rem 2rem 2rem 2rem; max-width: 1100px; }
 
 /* Sidebar */
