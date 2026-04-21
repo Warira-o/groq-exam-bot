@@ -6,4 +6,4 @@ langchain-text-splitters
 faiss-cpu
 pypdf
 python-dotenv
-fastembed==0.4.2
+fastembed==0.7.4
