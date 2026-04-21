@@ -1,8 +1,8 @@
 streamlit
 fastembed
-langchain>=0.2.0
-langchain-community>=0.2.0
-langchain-core>=0.2.0
+langchain
+langchain-community
+langchain-core
 langchain-groq
 sentence-transformers
 faiss-cpu
